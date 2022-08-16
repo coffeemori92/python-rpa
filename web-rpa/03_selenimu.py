@@ -26,5 +26,21 @@ elem.send_keys(Keys.ENTER)
 
 elems = browser.find_elements(By.TAG_NAME, 'a')
 
-for elem in elems:
-    print(elem.get_attribute('href'))
+# for elem in elems:
+#     print(elem.get_attribute('href'))
+
+browser.get('http://daum.net')
+
+elem = browser.find_element(By.ID, 'q')
+elem.send_keys('hi')
+elem.clear()
+elem.send_keys('hello')
+
+elem = browser.find_element(By.XPATH, '//*[@id="daumSearch"]/fieldset/div/div/button[3]')
+elem.click()
+browser.save_screenshot('./out/daum.png')
+
+with open('./out/source.txt', 'w', encoding='utf-8') as f:
+    f.write(browser.page_source)
+
+browser.close()
