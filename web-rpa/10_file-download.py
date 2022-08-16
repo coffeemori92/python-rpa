@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 
+# 저장 경로 변경
 chrome_options = Options()
 chrome_options.add_experimental_option('prefs', {
     'download.default_directory': os.path.join(os.getcwd(), 'out')
